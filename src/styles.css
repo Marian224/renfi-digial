@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "Inter", system-ui, sans-serif;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+html {
+  background: #050507;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(124, 92, 255, 0.08), transparent 28rem),
+    #050507;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.glass {
+  background: rgba(7, 7, 10, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+  border-radius: 18px;
+  transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.card:hover {
+  border-color: rgba(139, 108, 255, .35);
+  box-shadow: 0 22px 70px rgba(0,0,0,.32);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 5%, #a78bfa 55%, #7c5cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+  opacity: .35;
+}
+
+.section-shell {
+  width: min(1280px, calc(100% - 2rem));
+  margin-inline: auto;
+  padding-block: 7rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    width: min(1280px, calc(100% - 3rem));
+  }
+}
+
+@media (max-width: 639px) {
+  .section-shell {
+    padding-block: 5rem;
+  }
+}
+
+::selection {
+  background: rgba(124, 92, 255, .35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  },
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+/* Premium v2 polish */
+.hero-grid { animation: gridDrift 18s linear infinite; }
+.hero-card-wrap { transform-style: preserve-3d; }
+.card { position: relative; overflow: hidden; }
+.card::after { content: ""; position:absolute; inset:-1px; pointer-events:none; border-radius:inherit; background: linear-gradient(120deg, transparent 30%, rgba(167,139,250,.10), transparent 70%); transform: translateX(-110%); transition: transform .8s ease; }
+.card:hover::after { transform: translateX(110%); }
+@keyframes gridDrift { from { background-position: 0 0, 0 0; } to { background-position: 64px 64px, 64px 64px; } }
+
+
+.field { display: block; }
+.field > span {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(255,255,255,.62);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 11px;
+  background: rgba(255,255,255,.035);
+  color: #fff;
+  outline: none;
+  padding: 12px 13px;
+  font: inherit;
+  font-size: 13px;
+  transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(255,255,255,.22); }
+.field select { color: rgba(255,255,255,.72); }
+.field select option { background: #0b0b0f; color: #fff; }
+.field textarea { resize: vertical; min-height: 125px; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(167,139,250,.55);
+  background: rgba(124,92,255,.045);
+  box-shadow: 0 0 0 3px rgba(124,92,255,.08);
+}
